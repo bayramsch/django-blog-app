@@ -1,0 +1,25 @@
+{% extends 'templates/html/base.html' %}
+{% comment %} {% extends 'templates/html/base.html' %} {% endcomment %}
+
+{% block container %}
+{% load crispy_forms_tags %}
+<h2>Registration Form</h2>
+
+{% if request.user.is_authenticated %}
+<h3>Thanks for registering</h3>
+{% else %}
+<h3>Join Today!</h3>
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-danger">Register</button>
+</form>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Already have an account? 
+        <a class="ml-2" href="{% url 'users:login' %}" >Sign In</a>
+    </small>
+</div>
+
+{% endblock container %}

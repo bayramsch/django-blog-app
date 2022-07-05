@@ -1,0 +1,26 @@
+{% extends 'templates/html/base.html' %}
+
+
+{% block container %}
+{% load crispy_forms_tags %}
+
+<h3>Delete Post</h3>
+<div>
+  <form action="" , method="POST">
+    {% csrf_token %} 
+    
+    Are you sure delete {{deleteobj}}?<br />
+    <br>
+    <input type="submit" value="Yes" style="background-color: red; color:white"/>
+    
+  </form>
+  <br>
+    <a href="{% url 'blog:postlist' %}">
+      <button style="background-color: green;color:white">No</button>
+    </a>
+</div>
+
+
+
+
+{% endblock container %}

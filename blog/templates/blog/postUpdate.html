@@ -1,0 +1,15 @@
+{% extends 'templates/html/base.html' %}
+
+
+{% block container %}
+{% load crispy_forms_tags %}
+
+<h2>Update {{updateobj.title}}</h2>
+
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+    {{form | crispy}}
+
+  <input type="submit" value="Update" />
+</form>
+{% endblock container %}
